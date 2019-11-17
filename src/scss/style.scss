@@ -1,0 +1,57 @@
+
+//Eigen variabelen moeten ervoor staan!
+
+html{
+    height: 100%;
+    width: 100%;
+    body{
+    background-color: black !important;
+    font-family: monospace !important;
+    height: 100%;
+    #menu{
+        position: fixed;
+        .title{
+            font-weight: bold;
+            font-size: 3vh !important;
+        }
+        color: white;
+        text-align: center;
+        height: 100%;
+        transition: height 500ms;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        z-index: 1;
+        
+        #menu-content{
+            white-space: nowrap;
+            overflow-wrap: unset;
+            button{
+                width: 20vh;
+                font-size: 2vh;
+                border: none;
+                background-color: black;
+                color: white;
+                
+                &:hover{
+                    color: black;
+                    background-color: whitesmoke;
+                }
+                &:focus{
+                    outline:0;
+                }
+            }
+            
+        }
+    }
+    
+    #game-canvas{
+        float: left;
+        background-color: black;
+        height: 100%;
+        width: 100%;
+    }
+}
+}
+
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
