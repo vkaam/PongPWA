@@ -1,8 +1,7 @@
-let canvas = document.getElementById("game-canvas");
-let ctx = canvas.getContext("2d");
-
 export class Player {
-    constructor(type, x) {
+    constructor(type, x, canvas) {
+        this.canvas = canvas
+        this.ctx = canvas.getContext("2d")
         this.type = type
         this.height = 200
         this.width = 20
@@ -11,14 +10,14 @@ export class Player {
         this.renderPlayer()
     }
     renderPlayer() {
-        ctx.fillStyle = "white"
-        ctx.beginPath()
-        ctx.rect(this.x, this.y, this.width, this.height)
-        ctx.fill()
-        ctx.closePath()
+        this.ctx.fillStyle = "white"
+        this.ctx.beginPath()
+        this.ctx.rect(this.x, this.y, this.width, this.height)
+        this.ctx.fill()
+        this.ctx.closePath()
     }
     unrenderPlayer() {
-        ctx.clearRect(this.x, this.y, this.width, this.height)
+        this.ctx.clearRect(this.x, this.y, this.width, this.height)
     }
     updateLocation(y) {
         this.unrenderPlayer()

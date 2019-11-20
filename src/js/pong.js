@@ -3,7 +3,6 @@ import { PlayerMovementHandler } from './PlayerMovementHandler';
 import { PlayingField } from './PlayingField'
 
 let canvas = document.getElementById("game-canvas");
-let ctx = canvas.getContext("2d");
 let menu = document.getElementById("menu")
 let canvasWrapper = document.getElementById("canvas-wrapper");
 
@@ -33,7 +32,7 @@ function startGame() {
 function initialiseGame() {
     fix_dpi()
     // let player = new Player("real", 50)
-    let playingField = new PlayingField(canvas.height, canvas.width, ctx)
+    let playingField = new PlayingField(canvas)
     let playerMovementHandler = new PlayerMovementHandler(playingField.realPlayer, canvas)
 }
 
@@ -43,9 +42,8 @@ function startCountDown() {
 
 }
 
-let dpi = window.devicePixelRatio;
-
 function fix_dpi() {
+    let dpi = window.devicePixelRatio;
     let style_height = +getComputedStyle(canvas).getPropertyValue("height").slice(0, -2);
     let style_width = +getComputedStyle(canvas).getPropertyValue("width").slice(0, -2);
     canvas.setAttribute('height', style_height * dpi);
